@@ -1,11 +1,9 @@
 ﻿using Serilog;
 using Serilog.Core;
 using MU.Network.Event;
-using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MuEmu.Monsters;
 using MuEmu.Resources.Map;
 using MuEmu.Resources;

@@ -1,5 +1,4 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using MU.Resources;
+﻿using MU.Resources;
 using MU.Resources.Game;
 using MU.Resources.XML;
 using MuEmu.Data;
@@ -14,8 +13,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 

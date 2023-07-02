@@ -196,7 +196,7 @@ namespace MuEmu
         public static void Initialize(ushort[] ver)
         {
             version = new ushort[] { ver[0], ver[1], ver[2] };
-            var root = $"./Data/CashShop/{ver[0]}.{ver[1]}.{ver[2]}/";
+            var root = $"./Config/CashShop/{ver[0]}.{ver[1]}.{ver[2]}/";
 
             cat = new Dictionary<int, IBSCategory>();
             pack = new Dictionary<int, IBSPackage>();

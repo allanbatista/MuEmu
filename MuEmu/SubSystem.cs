@@ -789,7 +789,7 @@ namespace MuEmu
 
         private static async void WorkerSavePlayers()
         {
-            var news = ResourceLoader.XmlLoader<XmlNewsDto>("./Data/news.xml");
+            var news = ResourceLoader.XmlLoader<XmlNewsDto>("./Config/news.xml");
             var Interval = news.Interval;
             var currentNew = 0;
             using (db = new GameContext())

@@ -56,7 +56,7 @@ namespace MuEmu
 
         private Pentagrama()
         {
-            _Info = Resources.ResourceLoader.XmlLoader<PentagramaDto>("./Data/PentagramaItems.xml");
+            _Info = Resources.ResourceLoader.XmlLoader<PentagramaDto>("./Config/PentagramaItems.xml");
             _logger.Information("Initialized");
             foreach(var mob in _Info.Monsters)
             {

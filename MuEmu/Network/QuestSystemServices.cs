@@ -60,7 +60,7 @@ namespace MuEmu.Network
                 return;
             }
             var @char = session.Player.Character;
-            var quest2 = ResourceLoader.XmlLoader<QuestEXPDto>("./Data/QuestEXP.xml");
+            var quest2 = ResourceLoader.XmlLoader<QuestEXPDto>("./Config/QuestEXP.xml");
 
             QuestInfoIndex info = message.dwQuestInfoIndexID;// @char.Quests.GetEpisodeByIndex();
 

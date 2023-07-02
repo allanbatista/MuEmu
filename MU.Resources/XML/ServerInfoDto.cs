@@ -18,7 +18,10 @@ namespace MuEmu.Resources.XML
         [XmlElement] public ServerSeason Season { get; set; } = ServerSeason.Season9Eng;
 
         [XmlElement("Connection")] public ConnectionInfoDto Connection { get; set; } = new ConnectionInfoDto();
-        [XmlElement("Database")] public DatabaseInfoDto Database { get; set; } = new DatabaseInfoDto();
+        
+        [XmlElement] public string DatabaseUrl { get; set; }
+
+        // [XmlElement("Database")] public DatabaseInfoDto Database { get; set; } = new DatabaseInfoDto();
         [XmlElement("Client")] public ClientInfoDto Client { get; set; } = new ClientInfoDto();
         [XmlElement("GamePlay")] public GamePlayInfoDto GamePlay { get; set; } = new GamePlayInfoDto();
         [XmlElement("Files")] public FilesInfoDto Files { get; set; } = new FilesInfoDto();
@@ -42,6 +45,8 @@ namespace MuEmu.Resources.XML
         [XmlElement] public string DataBase { get; set; } = "MuOnline";
         [XmlElement] public string BDUser { get; set; } = "root";
         [XmlElement] public string DBPassword { get; set; } = "1234";
+        
+        [XmlElement] public string DBPort { get; set; } = "5432";
     }
 
     [XmlType(AnonymousType = true)]
@@ -66,19 +71,19 @@ namespace MuEmu.Resources.XML
     [XmlType(AnonymousType = true)]
     public class FilesInfoDto
     {
-        [XmlElement] public string DataRoot { get; set; } = "./Data/";
-        [XmlElement] public string Monsters { get; set; } = "./Data/Monsters/Monster";
-        [XmlElement] public string MonsterSetBase { get; set; } = "./Data/Monsters/MonsterSetBase";
-        [XmlElement] public string SelupanPatterns { get; set; } = "./Data/Monsters/PatternSelupan.xml";
-        [XmlElement] public string MapServer { get; set; } = "./Data/MapServer.xml";
-        [XmlElement] public string MayaLeftHandPatterns { get; set; } = "./Data/Monsters/PatternMayaLeftHand.xml";
-        [XmlElement] public string MayaRightHandPatterns { get; set; } = "./Data/Monsters/PatternMayaRightHand.xml";
-        [XmlElement] public string NightmarePatterns { get; set; } = "./Data/Monsters/PatternNightmare.xml";
-        [XmlElement] public string QuestWorld { get; set; } = "./Data/QuestWorld/";
-        [XmlElement] public string MGMuRummy { get; set; } = "./Data/MiniGames/MuRummy.xml";
-        [XmlElement] public string MGFindBombs { get; set; } = "./Data/MiniGames/FindBombs.xml";
-        [XmlElement] public string MGJewelBingo { get; set; } = "./Data/MiniGames/JewelBingo.xml";
-        [XmlElement] public string MGBallsAndCows { get; set; } = "./Data/MiniGames/BallsAndCows.xml";
+        [XmlElement] public string DataRoot { get; set; } = "./Config/";
+        [XmlElement] public string Monsters { get; set; } = "./Config/Monsters/Monster";
+        [XmlElement] public string MonsterSetBase { get; set; } = "./Config/Monsters/MonsterSetBase";
+        [XmlElement] public string SelupanPatterns { get; set; } = "./Config/Monsters/PatternSelupan.xml";
+        [XmlElement] public string MapServer { get; set; } = "./Config/MapServer.xml";
+        [XmlElement] public string MayaLeftHandPatterns { get; set; } = "./Config/Monsters/PatternMayaLeftHand.xml";
+        [XmlElement] public string MayaRightHandPatterns { get; set; } = "./Config/Monsters/PatternMayaRightHand.xml";
+        [XmlElement] public string NightmarePatterns { get; set; } = "./Config/Monsters/PatternNightmare.xml";
+        [XmlElement] public string QuestWorld { get; set; } = "./Config/QuestWorld/";
+        [XmlElement] public string MGMuRummy { get; set; } = "./Config/MiniGames/MuRummy.xml";
+        [XmlElement] public string MGFindBombs { get; set; } = "./Config/MiniGames/FindBombs.xml";
+        [XmlElement] public string MGJewelBingo { get; set; } = "./Config/MiniGames/JewelBingo.xml";
+        [XmlElement] public string MGBallsAndCows { get; set; } = "./Config/MiniGames/BallsAndCows.xml";
     }
 
     [XmlType(AnonymousType = true)]

@@ -20,7 +20,7 @@ namespace MuEmu.Entity
                 .UseLoggerFactory(ChangeTrackingAndSqlConsoleLoggerFactory)
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors()
-                .UseMySQL(ConnectionString);
+                .UseNpgsql(ConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

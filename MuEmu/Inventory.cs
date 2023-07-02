@@ -7,15 +7,11 @@ using Serilog;
 using Serilog.Core;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using MuEmu.Util;
 using MuEmu.Resources;
 using MU.Network.Event;
-using MySqlX.XDevAPI;
-using MuEmu.Network.Data;
 
 namespace MuEmu
 {

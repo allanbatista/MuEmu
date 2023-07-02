@@ -574,7 +574,7 @@ namespace MuEmu.Events.Kanturu
             _battleOfNightmare = new KanturuBattleOfNightmare(this);
             _towerOfRefinement = new KanturuTowerOfRefinement(this);
 
-            _info = ResourceLoader.XmlLoader<KanturuStagesDto>("./Data/Monsters/KanturuMonsterSet.xml");
+            _info = ResourceLoader.XmlLoader<KanturuStagesDto>("./Config/Monsters/KanturuMonsterSet.xml");
         }
 
         public override void Initialize()

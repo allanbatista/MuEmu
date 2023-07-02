@@ -420,7 +420,7 @@ namespace WebZen.Network
                 }
                 else
                 {
-                    data.Write(BitConverter.GetBytes((byte)data.Length), 0, 1);
+                    data.Write(BitConverter.GetBytes((ushort)data.Length), 0, 1);
                 }
                 res = data.ToArray();
 

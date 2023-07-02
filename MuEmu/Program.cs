@@ -65,6 +65,8 @@ namespace MuEmu
 {
     class Program
     {
+        private static string ConfigFile = "./Config/Server.xml";
+        
         private static Random s_rand = new Random();
 
         public static CommandHandler<GSSession> Handler { get; } = new CommandHandler<GSSession>();
@@ -122,26 +124,24 @@ namespace MuEmu
                 .CreateLogger();
 
             ServerMessages.Initialize();
-            ServerMessages.LoadMessages("./Data/Lang/ServerMessages(es).xml");
+            ServerMessages.LoadMessages("./Config/Lang/ServerMessages.xml");
 
-            if (!File.Exists("./Server.xml"))
+            if (!File.Exists(ConfigFile))
             {
                 Log.Logger.Error(ServerMessages.GetMessage(Messages.Server_Cfg));
-                ResourceLoader.XmlSaver("./Server.xml", new ServerInfoDto());
+                ResourceLoader.XmlSaver(ConfigFile, new ServerInfoDto());
                 Task.Delay(10000);
                 return;
             }
 
-            var xml = ResourceLoader.XmlLoader<ServerInfoDto>("./Server.xml");
+            var xml = ResourceLoader.XmlLoader<ServerInfoDto>(ConfigFile);
             XMLConfiguration = xml;
-            ServerMessages.LoadMessages($"{xml.Files.DataRoot}Lang/ServerMessages({xml.Lang}).xml");
+            ServerMessages.LoadMessages($"{xml.Files.DataRoot}Lang/ServerMessages.xml");
 
             Name = xml.Name;
-            Console.Title = ServerMessages.GetMessage(Messages.Server_Title, xml.Code, xml.Name, xml.Client.Version, xml.Client.Serial, xml.Database.DataBase, xml.Season);
+            Console.Title = ServerMessages.GetMessage(Messages.Server_Title, xml.Code, xml.Name, xml.Client.Version, xml.Client.Serial, xml.Season);
 
-            ConnectionString = $"Server={xml.Database.DBIp};port=3306;Database={xml.Database.DataBase};user={xml.Database.BDUser};password={xml.Database.DBPassword};Convert Zero Datetime=True;";
-
-            GameContext.ConnectionString = ConnectionString;
+            GameContext.ConnectionString = xml.DatabaseUrl;
             SimpleModulus.LoadDecryptionKey(xml.Files.DataRoot + "Dec1.dat");
             SimpleModulus.LoadEncryptionKey(xml.Files.DataRoot + "Enc2.dat");
             
@@ -388,7 +388,7 @@ namespace MuEmu
                 SubSystem.CSSystem(csIP, cmh, cmf, (byte)xml.Show, xml.Connection.APIKey);
                 Log.Information(ServerMessages.GetMessage(Messages.Server_Ready));
             }
-            catch(MySql.Data.MySqlClient.MySqlException ex)
+            catch(Npgsql.NpgsqlException ex)
             {
                 Log.Error(ServerMessages.GetMessage(Messages.Server_MySQL_Error));
                 Log.Error(ex.Message);
